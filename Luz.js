@@ -12,7 +12,7 @@ export function LuzPoint(cena, cor, intensidade, x, y, z) {
   //const cameraHelper = new THREE.CameraHelper(light.shadow.camera);
   //cena.add(cameraHelper);
   const luzPontual1 = new THREE.PointLight(cor, intensidade);
-  luzPontual1.position.set(-50, -8, 0); // Posição da primeira lâmpada
+  luzPontual1.position.set(-50, -7.5, 0); // Posição da primeira lâmpada
   luzPontual1.castShadow = true
   luzPontual1.intensity = intensidade;
   luzPontual1.shadow.camera.zoom = 1;
@@ -22,7 +22,7 @@ export function LuzPoint(cena, cor, intensidade, x, y, z) {
   cena.add(luzPontual1.target)
 
   const luzPontual2 = new THREE.PointLight(cor, intensidade);
-  luzPontual2.position.set(50, -8, 0); // Posição da segunda lâmpada
+  luzPontual2.position.set(50, -7.5, 0); // Posição da segunda lâmpada
   luzPontual2.castShadow = true
   luzPontual2.intensity = intensidade;
   luzPontual2.shadow.camera.zoom = 1;
@@ -32,7 +32,7 @@ export function LuzPoint(cena, cor, intensidade, x, y, z) {
   //const luzAmbiente = new THREE.AmbientLight(0x404040, 0.2);
   
   const luzPontual3 = new THREE.PointLight(cor, intensidade);
-  luzPontual3.position.set(0, -8, -50); // Posição da segunda lâmpada
+  luzPontual3.position.set(0, -7.5, -50); // Posição da segunda lâmpada
   luzPontual3.castShadow = true
   luzPontual3.intensity = intensidade;
   luzPontual3.shadow.camera.zoom = 1;
@@ -41,7 +41,7 @@ export function LuzPoint(cena, cor, intensidade, x, y, z) {
   cena.add(luzPontual3);
 
   const luzPontual4 = new THREE.PointLight(cor, intensidade);
-  luzPontual4.position.set(0, -8, 50); // Posição da segunda lâmpada
+  luzPontual4.position.set(0, -7.5, 50); // Posição da segunda lâmpada
   luzPontual4.castShadow = true
   luzPontual4.intensity = intensidade;
   luzPontual4.shadow.camera.zoom = 1;

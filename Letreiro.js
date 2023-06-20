@@ -34,7 +34,7 @@ export function createTextTexture(texto, largura, altura,tamanhoFonte) {
   // Gradiente para efeito de pixels luminosos
   const gradiente = contexto.createLinearGradient(0, 0, 0, altura * 100);
   gradiente.addColorStop(0, '#FFFFFF');
-  gradiente.addColorStop(0.5, '#FAED00');
+  gradiente.addColorStop(0.5, '#FFFB19');
   gradiente.addColorStop(1, '#FFFFFF');
 
   // Preencher o texto com o gradiente
@@ -50,7 +50,7 @@ export function createTextTexture(texto, largura, altura,tamanhoFonte) {
 export function LetreiroAnimado(rotacao, cena, cor, altura, largura, posX, posY, posZ, texto, tamanhoFonte, deslocamento) {
   const espessura = 0.2;
   const textura = createTextTexture(texto, largura - 0.1, altura - 0.1, tamanhoFonte);
-  const materialTexto = new THREE.MeshBasicMaterial({ map: textura, transparent: true ,opacity:0.8});
+  const materialTexto = new THREE.MeshBasicMaterial({ map: textura, transparent: true ,opacity:0.75});
   const textoMesh = new THREE.Mesh(new THREE.PlaneGeometry(largura - 0.1, altura - 0.1), materialTexto);
   textoMesh.position.set(posX, posY, posZ + espessura / 2 + 0.01); // Ajuste a posição do texto para ficar na face da placa
   textoMesh.rotation.y = Math.PI * -rotacao;
@@ -67,7 +67,7 @@ export function LetreiroAnimado(rotacao, cena, cor, altura, largura, posX, posY,
       offsetY += animationSpeed;
 
       if (offsetY >= altura) {
-        // Pausa por 4 segundos quando chegar ao topo
+        
         direction = 0; // Pausar a animação
         setTimeout(() => {
           direction = 1; // Iniciar deslocamento para baixo após a pausa de 4 segundos
@@ -77,7 +77,7 @@ export function LetreiroAnimado(rotacao, cena, cor, altura, largura, posX, posY,
       // Pausa por 4 segundos antes de iniciar a descida
       setTimeout(() => {
         direction = -1; // Iniciar deslocamento para cima após a pausa de 4 segundos
-      }, pauseDuration+2);
+      }, pauseDuration);
 
       // Deslocamento para baixo
       offsetY -= animationSpeed;

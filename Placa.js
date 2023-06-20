@@ -1,17 +1,34 @@
 import * as THREE from 'https://unpkg.com/three/build/three.module.js';
 import { Letreiro,LetreiroAnimado } from './Letreiro.js';
 
-export function PlacaLuminosa(cena, cor, x, y, z, largura, altura, espessura,rotacao) {
+export function PlacaLuminosa1(cena, cor, x, y, z, largura, altura, espessura,rotacao) {
     var geometria = new THREE.BoxGeometry(largura, altura, espessura);
-    var material = new THREE.MeshStandardMaterial({ color: cor, roughness: 0.2, metalness: 0.78 });
+    var material = new THREE.MeshStandardMaterial({ color: cor, roughness: 0.3, metalness: 0.8 });
 
     var cubo = new THREE.Mesh(geometria, material);
     cubo.castShadow = true;
     cubo.receiveShadow = true;
     //otacao, cena, cor, altura, largura, posX, posY, posZ, texto, tamanhoFonte, deslocamento
-    LetreiroAnimado(rotacao,cena,0x2E2E33,altura-2,largura,x-0.55,y-14,z,'MegaFome - O lanche que mata a sua fome colossal!',360,0.02)
+    LetreiroAnimado(rotacao,cena,0xEBE758,altura,largura,x-0.55,y-18,z,'MegaFome - O lanche que mata a sua fome colossal!',360,0.045)
     //cena, texturaURL, largura, altura, x, y, z, repeticoesX, repeticoesY
-    CriarPlanoTextura(cena,'./img/pixels-escuro.jpg',largura-2.4,altura-4.5,x-0.54,y+1,z,1,6,rotacao)
+    CriarPlanoTextura(cena,'./img/pixels-escuro.jpg',largura-2.4,altura-4.5,x-0.54,y+1,z,1,1,rotacao)
+    cena.add(cubo);
+    cubo.position.set(x, y, z);
+    cubo.receiveShadow = true;
+    cubo.rotation.y = Math.PI * -rotacao;
+    
+}
+export function PlacaLuminosa2(cena, cor, x, y, z, largura, altura, espessura,rotacao) {
+    var geometria = new THREE.BoxGeometry(largura, altura, espessura);
+    var material = new THREE.MeshStandardMaterial({ color: cor, roughness: 0.3, metalness: 0.8 });
+
+    var cubo = new THREE.Mesh(geometria, material);
+    cubo.castShadow = true;
+    cubo.receiveShadow = true;
+    //otacao, cena, cor, altura, largura, posX, posY, posZ, texto, tamanhoFonte, deslocamento
+    LetreiroAnimado(rotacao,cena,0x2E2E33,altura,largura,x+0.55,y-18,z,'GelaMais - O refrigerante que congela de tão gelado!',360,0.045)
+    //cena, texturaURL, largura, altura, x, y, z, repeticoesX, repeticoesY
+    CriarPlanoTextura(cena,'./img/pixels-escuro.jpg',largura-2.4,altura-4.5,x+0.54,y+1,z,1,1,rotacao)
     cena.add(cubo);
     cubo.position.set(x, y, z);
     cubo.receiveShadow = true;
@@ -57,7 +74,7 @@ function CriarPlanoTextura(cena, texturaURL, largura, altura, x, y, z, repeticoe
       uv[i * 2 + 1] *= ajusteY;
     }
     
-    const material = new THREE.MeshBasicMaterial({ map: textura, flatShading: true});
+    const material = new THREE.MeshStandardMaterial({ map: textura, flatShading: true, roughness: 0.2, metalness: 0.8 });
     const plano = new THREE.Mesh(geometria, material);
     
     cena.add(plano);

@@ -2,10 +2,10 @@ import * as THREE from 'https://unpkg.com/three/build/three.module.js';
 import {OrbitControls} from "https://threejsfundamentals.org/threejs/resources/threejs/r110/examples/jsm/controls/OrbitControls.js";
 import {GLTFLoader} from "https://threejsfundamentals.org/threejs/resources/threejs/r110/examples/jsm/loaders/GLTFLoader.js";
 import {DRACOLoader} from "https://threejsfundamentals.org/threejs/resources/threejs/r110/examples/jsm/loaders/DRACOLoader.js";
-import {LuzPoint, LuzDirecional} from './Luz.js';
+import {LuzPoint,LuzDirecional} from './Luz.js';
 import {PisoPrincipal, Piso} from './Piso.js';
 import {Mesa} from './Mesa.js';
-
+import { Pessoa } from './Pessoa.js';
 
 var light
 const cena = new THREE.Scene()
@@ -29,9 +29,14 @@ function animate() {
   requestAnimationFrame(animate);
   renderer.render(cena, camera);
 }
-LuzDirecional(cena,new THREE.Color(0xFFFFFF),0.8,0,18,0)
-Mesa(cena,0,-12,0,0,20)
-LuzPoint(cena, new THREE.Color(0xFFFFFF), 0.8, 0, 38, 0);
-PisoPrincipal(cena,0,-12.8,0,100,100);
-Piso(cena,new THREE.Color(0x26AEFF),0,-13,0,200,200);
-animate();
+
+export function init(){
+  LuzDirecional(cena,new THREE.Color(0xFFFFFF),0.6,0,18,0)
+  Mesa(cena,0,-12,0,0,20)
+  LuzPoint(cena, new THREE.Color(0xFFFFFF), 0.8, 0, 38, 0);
+  PisoPrincipal(cena,0,-12.8,0,100,100);
+  Piso(cena,new THREE.Color(0x26AEFF),0,-13,0,200,200);
+  Pessoa(cena,new THREE.Color(0x26AEFF),0,0,0)
+  animate();
+}
+init()

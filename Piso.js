@@ -1,6 +1,6 @@
 import * as THREE from 'https://unpkg.com/three/build/three.module.js';
 
-import { PlacaLuminosa } from './Placa.js';
+import { PlacaLuminosa1,PlacaLuminosa2 } from './Placa.js';
 
 const loader = new THREE.TextureLoader();
 export function PisoPrincipal(cena, x, y, z,largura,altura) {
@@ -8,9 +8,15 @@ export function PisoPrincipal(cena, x, y, z,largura,altura) {
     var p = loader.load('./img/O5GLMS0.jpg');
     var material = new THREE.MeshStandardMaterial({ map: p, roughness: 0.4, metalness: 0.2});
     const piso = new THREE.Mesh(plane, material);
+    p.wrapS = THREE.RepeatWrapping; // Repetição horizontal
+    p.wrapT = THREE.RepeatWrapping; // Repetição vertical
+    p.repeat.set(2, 2); // Define a quantidade de repetições
+  
+    
 
     
-    PlacaLuminosa(cena,0x2E2E2E,50.6,-12,0,100,20,1,0.5);
+    PlacaLuminosa1(cena,0x2E2E2E,50.6,-13.5,0,100,24,1,0.5);
+    PlacaLuminosa2(cena,0x2E2E2E,-50.6,-13.5,0,100,24,1,1.5);
     piso.rotation.x = Math.PI * -0.5;
     piso.receiveShadow = true;
     cena.add(piso);
