@@ -9,7 +9,7 @@ export function PlacaLuminosa1(cena, cor, x, y, z, largura, altura, espessura,ro
     cubo.castShadow = true;
     cubo.receiveShadow = true;
     //otacao, cena, cor, altura, largura, posX, posY, posZ, texto, tamanhoFonte, deslocamento
-    LetreiroAnimado(rotacao,cena,0xEBE758,altura,largura,x-0.55,y-18,z,'MegaFome - O lanche que mata a sua fome colossal!',360,0.045)
+    LetreiroAnimado(rotacao,cena,0xEBE758,altura,largura-2.39,x-0.55,y-25.34,z-0.1,'./img/gelamais1.png',360,0.045)
     //cena, texturaURL, largura, altura, x, y, z, repeticoesX, repeticoesY
     CriarPlanoTextura(cena,'./img/pixels-escuro.jpg',largura-2.4,altura-4.5,x-0.54,y+1,z,1,1,rotacao)
     cena.add(cubo);
@@ -26,7 +26,7 @@ export function PlacaLuminosa2(cena, cor, x, y, z, largura, altura, espessura,ro
     cubo.castShadow = true;
     cubo.receiveShadow = true;
     //otacao, cena, cor, altura, largura, posX, posY, posZ, texto, tamanhoFonte, deslocamento
-    LetreiroAnimado(rotacao,cena,0x2E2E33,altura,largura,x+0.55,y-18,z,'GelaMais - O refrigerante que congela de tão gelado!',360,0.045)
+    LetreiroAnimado(rotacao,cena,0x2E2E33,altura,largura-2.39,x+0.55,y-25.34,z-0.1,'./img/megafome1.png',360,0.045)
     //cena, texturaURL, largura, altura, x, y, z, repeticoesX, repeticoesY
     CriarPlanoTextura(cena,'./img/pixels-escuro.jpg',largura-2.4,altura-4.5,x+0.54,y+1,z,1,1,rotacao)
     cena.add(cubo);

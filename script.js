@@ -6,6 +6,7 @@ import {LuzPoint,LuzDirecional} from './Luz.js';
 import {PisoPrincipal, Piso} from './Piso.js';
 import {Mesa} from './Mesa.js';
 import { Pessoa } from './Pessoa.js';
+import { BolaPingPong } from './Bola.js';
 
 var light
 const cena = new THREE.Scene()
@@ -36,7 +37,8 @@ export function init(){
   LuzPoint(cena, new THREE.Color(0xFFFFFF), 0.8, 0, 38, 0);
   PisoPrincipal(cena,0,-12.8,0,100,100);
   Piso(cena,new THREE.Color(0x26AEFF),0,-13,0,200,200);
-  Pessoa(cena,new THREE.Color(0x26AEFF),0,0,0)
+  //Pessoa(cena,new THREE.Color(0x26AEFF),0,0,0)
+  //BolaPingPong(cena,0,-11,0,4,'./img/bola.png')
   animate();
 }
 init()

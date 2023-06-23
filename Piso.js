@@ -10,7 +10,7 @@ export function PisoPrincipal(cena, x, y, z,largura,altura) {
     const piso = new THREE.Mesh(plane, material);
     p.wrapS = THREE.RepeatWrapping; // Repetição horizontal
     p.wrapT = THREE.RepeatWrapping; // Repetição vertical
-    p.repeat.set(2, 2); // Define a quantidade de repetições
+    p.repeat.set(2, 2); //quantidade de repetições
   
     
 
@@ -20,7 +20,7 @@ export function PisoPrincipal(cena, x, y, z,largura,altura) {
     piso.rotation.x = Math.PI * -0.5;
     piso.receiveShadow = true;
     cena.add(piso);
-    piso.position.set(x, y, z); // Ajuste as coordenadas (x, y, z) para mover o piso
+    piso.position.set(x, y, z); //posição do piso
 
         
     
@@ -32,5 +32,5 @@ export function Piso(cena, cor, x, y, z,largura,altura) {
     piso.receiveShadow = true;
     piso.rotation.x = Math.PI * -0.5;
     cena.add(piso);
-    piso.position.set(x, y, z); // Ajuste as coordenadas (x, y, z) para mover o piso
+    piso.position.set(x, y, z); // ajustando as coordenadas (x, y, z) ppra mover o piso
 }

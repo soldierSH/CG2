@@ -4,7 +4,7 @@ export function Mesa(cena, x, y, z, rotacaoX, tamanho) {
     const altura = 0.76 * tamanho; // Altura da mesa de ping pong (padrão: 0.76)
     const largura = 1.52 * tamanho; // Largura da mesa de ping pong (padrão: 1.52)
     const espessura = 0.03 * tamanho; // Espessura da mesa de ping pong (padrão: 0.05)
-    var p = loader.load('./img/madeira-mesa.jpg');
+    var p = loader.load('./img/madeiramesa1.png');
     const mesaGeometria = new THREE.BoxGeometry(largura, espessura, altura);
     const mesaMaterial = new THREE.MeshStandardMaterial({ map: p ,roughness: 0.4, metalness: 0.2});
     const mesa = new THREE.Mesh(mesaGeometria, mesaMaterial);//234489
@@ -29,7 +29,7 @@ export function Mesa(cena, x, y, z, rotacaoX, tamanho) {
 
 export function Cilindro(cena, cor, raioCima, raioBaixo, altura, x, y, z) {
     var geometria = new THREE.CylinderGeometry(raioCima, raioBaixo, altura, 20);
-    var p = loader.load('./img/madeira-mesa.jpg');
+    var p = loader.load('./img/madeiramesa1.png');
     var material = new THREE.MeshPhongMaterial({ map: p });
     var cilindro = new THREE.Mesh(geometria, material);
     cilindro.receiveShadow = true;

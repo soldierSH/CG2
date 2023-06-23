@@ -1,6 +1,6 @@
 import * as THREE from 'https://unpkg.com/three/build/three.module.js';
 
-
+const loader = new THREE.TextureLoader();
 export function Letreiro(rotacao,cena, cor, altura, largura, posX, posY, posZ, texto,tamanhoFonte) {
   const espessura = 0.2;
   const textura = createTextTexture(texto, largura - 0.1, altura - 0.1,tamanhoFonte);
@@ -49,15 +49,15 @@ export function createTextTexture(texto, largura, altura,tamanhoFonte) {
 }
 export function LetreiroAnimado(rotacao, cena, cor, altura, largura, posX, posY, posZ, texto, tamanhoFonte, deslocamento) {
   const espessura = 0.2;
-  const textura = createTextTexture(texto, largura - 0.1, altura - 0.1, tamanhoFonte);
-  const materialTexto = new THREE.MeshBasicMaterial({ map: textura, transparent: true ,opacity:0.75});
+  var p = loader.load(texto);
+  const materialTexto = new THREE.MeshStandardMaterial({ map: p, transparent: true , opacity:0.75, roughness: 0.3, metalness: 0.8});
   const textoMesh = new THREE.Mesh(new THREE.PlaneGeometry(largura - 0.1, altura - 0.1), materialTexto);
   textoMesh.position.set(posX, posY, posZ + espessura / 2 + 0.01); // Ajuste a posição do texto para ficar na face da placa
   textoMesh.rotation.y = Math.PI * -rotacao;
   cena.add(textoMesh);
 
   let offsetY = altura;
-  const animationSpeed = deslocamento;
+  const animationSpeed = deslocamento+0.02;
   const pauseDuration = 6000; // 4 segundos de pausa
   let direction = -1; // Inicialmente, o letreiro desce
 
