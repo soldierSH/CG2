@@ -32,5 +32,5 @@ export function Piso(cena, cor, x, y, z,largura,altura) {
     piso.receiveShadow = true;
     piso.rotation.x = Math.PI * -0.5;
     cena.add(piso);
-    piso.position.set(x, y, z); // ajustando as coordenadas (x, y, z) ppra mover o piso
+    piso.position.set(x, y, z); //ajustando as coordenadas (x, y, z) ppra mover o piso
 }

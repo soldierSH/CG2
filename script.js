@@ -38,7 +38,7 @@ export function init(){
   PisoPrincipal(cena,0,-12.8,0,100,100);
   Piso(cena,new THREE.Color(0x26AEFF),0,-13,0,200,200);
   //Pessoa(cena,new THREE.Color(0x26AEFF),0,0,0)
-  //BolaPingPong(cena,0,-11,0,4,'./img/bola.png')
+  BolaPingPong(cena,camera,renderer,0,-4,0,2,'./img/bola1.jpg',200)
   animate();
 }
-init()
+//init()
