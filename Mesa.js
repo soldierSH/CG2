@@ -42,12 +42,14 @@ export function Tampo(cena,cor, tamanho,x,y,z){
     const altura = 0.76 * tamanho;
     const largura = 1.52 * tamanho;
     var geometria = new THREE.PlaneGeometry(altura, largura);
-    var material = new THREE.MeshStandardMaterial({color: cor, roughness: 0.3, metalness: 0.2});
+    var material = new THREE.MeshStandardMaterial({color: cor, roughness: 0.4, metalness: 0.2});
   
     var plano = new THREE.Mesh(geometria, material);
     plano.position.set(x, y, z);
     plano.rotation.x = Math.PI * -0.5;
     plano.rotation.z = Math.PI * -0.5;
+    plano.receiveShadow = true;
+    plano.castShadow = true;
     cena.add(plano)
 }
 export function Linha(cena, cor, pontoInicial, pontoFinal) {
@@ -77,9 +79,9 @@ export function Rede(cena, largura, altura, posX, posY, posZ,rotacao){
     const textureLoader = new THREE.TextureLoader();
     const textura = textureLoader.load('./img/rede.jpg');
   
-   textura.wrapS = THREE.RepeatWrapping; // Repetição horizontal
-   textura.wrapT = THREE.RepeatWrapping; // Repetição vertical
-   textura.repeat.set(10, 2); // Define a quantidade de repetições
+    textura.wrapS = THREE.RepeatWrapping; // Repetição horizontal
+    textura.wrapT = THREE.RepeatWrapping; // Repetição vertical
+    textura.repeat.set(10, 2); // Define a quantidade de repetições
     var geometria = new THREE.PlaneGeometry(altura, largura);
     var material = new THREE.MeshPhongMaterial({map: textura, flatShading: true,opacity:0.9})
   

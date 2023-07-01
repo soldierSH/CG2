@@ -1,52 +1,6 @@
 import * as THREE from 'https://unpkg.com/three/build/three.module.js';
 
 const loader = new THREE.TextureLoader();
-export function Letreiro(rotacao,cena, cor, altura, largura, posX, posY, posZ, texto,tamanhoFonte) {
-  const espessura = 0.2;
-  const textura = createTextTexture(texto, largura - 0.1, altura - 0.1,tamanhoFonte);
-  const materialTexto = new THREE.MeshBasicMaterial({ map: textura, transparent: true });
-  const textoMesh = new THREE.Mesh(new THREE.PlaneGeometry(largura - 0.1, altura - 0.1), materialTexto);
-  textoMesh.position.set(posX, posY, posZ + espessura / 2 + 0.01); // Ajuste a posição do texto para ficar na face da placa
-  textoMesh.rotation.y = Math.PI * -rotacao;
-  cena.add(textoMesh);
-}
-export function Letras(rotacao,cena, cor, altura, largura, posX, posY, posZ, texto,tamanhoFonte) {
-    const espessura = 0.2;
-    const textura = createTextTexture(texto, largura - 0.1, altura - 0.1,tamanhoFonte);
-    const materialTexto = new THREE.MeshBasicMaterial({ map: textura, transparent: true });
-    const textoMesh = new THREE.Mesh(new THREE.PlaneGeometry(largura - 0.1, altura - 0.1), materialTexto);
-    textoMesh.position.set(posX, posY, posZ + espessura / 2 + 0.01); // Ajuste a posição do texto para ficar na face da placa
-    textoMesh.rotation.y = Math.PI * -rotacao;
-    cena.add(textoMesh);
-    
-  }
-export function createTextTexture(texto, largura, altura,tamanhoFonte) {
-  const canvas = document.createElement('canvas');
-  canvas.width = largura * 100;
-  canvas.height = altura * 100;
-  const contexto = canvas.getContext('2d');
-
-  // Configurar o estilo do texto
-  contexto.font = `bold ${tamanhoFonte}px Arial`;
-  contexto.textAlign = 'center';
-  contexto.textBaseline = 'middle';
-
-  // Gradiente para efeito de pixels luminosos
-  const gradiente = contexto.createLinearGradient(0, 0, 0, altura * 100);
-  gradiente.addColorStop(0, '#FFFFFF');
-  gradiente.addColorStop(0.5, '#FFFB19');
-  gradiente.addColorStop(1, '#FFFFFF');
-
-  // Preencher o texto com o gradiente
-  contexto.fillStyle = gradiente;
-  contexto.fillText(texto, largura * 50, altura * 50);
-
-  // Criar a textura a partir do canvas
-  const textura = new THREE.Texture(canvas);
-  textura.needsUpdate = true;
-
-  return textura;
-}
 export function LetreiroAnimado(rotacao, cena, cor, altura, largura, posX, posY, posZ, texto, tamanhoFonte, deslocamento) {
   const espessura = 0.2;
   var p = loader.load(texto);
@@ -57,7 +11,7 @@ export function LetreiroAnimado(rotacao, cena, cor, altura, largura, posX, posY,
   cena.add(textoMesh);
 
   let offsetY = altura;
-  const animationSpeed = deslocamento+0.02;
+  const animationSpeed = deslocamento;
   const pauseDuration = 6000; // 4 segundos de pausa
   let direction = -1; // Inicialmente, o letreiro desce
 
