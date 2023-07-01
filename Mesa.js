@@ -16,7 +16,6 @@ export function Mesa(cena, x, y, z, rotacaoX, tamanho) {
     Cilindro(cena,new THREE.Color(0xFFB34D),6,6,8,x,y,z)
     //cena, cor, largura, altura, profundidade, posX, posY, posZ
     
-    //PAREI AQUI!!!!!!
     EstruturaRede(cena,new THREE.Color(0xFFFFFF),0.3,altura-13,largura-14.5,0,-5.7,0)
     //cena, largura, altura, posX, posY, posZ,rotacao
     Rede(cena,1.2,14.6,-0.17,-5.3,0,0.5)

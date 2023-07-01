@@ -1,14 +1,14 @@
 import * as THREE from 'https://unpkg.com/three/build/three.module.js';
 
 export function LuzPoint(cena, cor, intensidade, x, y, z) {
-  Lampada(cena,cor,intensidade,-50, 39, 0,0.2)
-  Lampada(cena,cor,intensidade,50, 39, 0,0.2)
-  Lampada(cena,cor,intensidade,0, 39, -50,0.2)
-  Lampada(cena,cor,intensidade,0, 39, 50,0.2)
-  Lampada(cena,cor,intensidade,0, 39, 0,0.2)
+  Lampada(cena,cor,intensidade,-50, 39, 0,0.2,1)
+  Lampada(cena,cor,intensidade,50, 39, 0,0.2,1)
+  Lampada(cena,cor,intensidade,0, 39, -50,0.2,1)
+  Lampada(cena,cor,intensidade,0, 39, 50,0.2,1)
+  Lampada(cena,cor,intensidade,0, 39, 0,0.2,0)
 
 }
-function Lampada(cena, cor, intensidade, x, y, z, tamanho) {
+function Lampada(cena, cor, intensidade, x, y, z, tamanho,op) {
   // Estrutura do lathe
   const points = [];
   for (let i = 0; i < 10; i++) {
@@ -34,7 +34,10 @@ function Lampada(cena, cor, intensidade, x, y, z, tamanho) {
 
   luz.add(new THREE.Mesh(lampadaEsfera, lampada));
   luz.position.set(x, y, z);
-  luz.castShadow = true;
+  if (op == 1) {
+    luz.castShadow = true;
+  }
+  
   const lampadaCompleta = new THREE.Object3D();
   lampadaCompleta.add(lathe);
   lampadaCompleta.add(luz);
