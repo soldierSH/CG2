@@ -31,7 +31,7 @@ function Bezier(cena, camera, renderer, bola) {
       x4: 16, y4: -1, z4: 1
     },
     { // Terceira curva
-      x1: 16, y1: -1, z1: 2,
+      x1: 16, y1: -1, z1: 1,
       x2: 8, y2: 0, z2: 1.5,
       x3: 4, y3: -1, z3: 2,
       x4: -8, y4: -5.7, z4: 1

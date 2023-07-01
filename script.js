@@ -39,7 +39,7 @@ export function init(){
   Piso(cena,new THREE.Color(0x26AEFF),0,-21,0,200,200);
   Teto(cena,0,40,0,0,200)
   Bola(cena,camera,renderer,-18,-2.5,2,1.5,'./img/bola1.jpg',200)
-  Raquete(cena,camera,renderer, new THREE.Color(0xFFB34D),-18.3, -3.8,1,-1)
+  Raquete(cena,camera,renderer, new THREE.Color(0xFFB34D),-18.1, -3.8,1,-1)
   Raquete(cena,camera,renderer, new THREE.Color(0x9440FF),16,-2.5,2,0.6)
   animate();
 }
