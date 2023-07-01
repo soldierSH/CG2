@@ -24,23 +24,22 @@ export function LetreiroAnimado(rotacao, cena, cor, altura, largura, posX, posY,
         
         direction = 0; // Pausar a animação
         setTimeout(() => {
-          direction = 1; // Iniciar deslocamento para baixo após a pausa de 4 segundos
+          direction = 1;
         }, pauseDuration);
       }
     } else if (direction === 1) {
-      // Pausa por 4 segundos antes de iniciar a descida
+      
       setTimeout(() => {
-        direction = -1; // Iniciar deslocamento para cima após a pausa de 4 segundos
+        direction = -1;
       }, pauseDuration);
 
       // Deslocamento para baixo
       offsetY -= animationSpeed;
 
       if (offsetY <= 0) {
-        // O letreiro atingiu a posição final de parada
         direction = 0; // Pausar a animação
         setTimeout(() => {
-          direction = 1; // Iniciar deslocamento para baixo após a pausa de 4 segundos
+          direction = 1;
         }, pauseDuration);
       }
     }

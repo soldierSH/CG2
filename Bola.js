@@ -63,19 +63,12 @@ function Bezier(cena, camera, renderer, bola) {
 
     // Obtém os pontos ao longo da curva
     const points = curva.getPoints(50);
-
-    // Cria a geometria da curva
     const geometry = new THREE.BufferGeometry().setFromPoints(points);
-
-    // Cria o material da curva
     const material = new THREE.MeshBasicMaterial({ color: new THREE.Color(0xA6A19A),opacity:0.01,transparent:true});
-
-    // Remove a curva anterior, se existir
     if (cena.getObjectByName('objCurva')) {
       cena.remove(cena.getObjectByName('objCurva'));
     }
 
-    // Adiciona a nova curva à cena
     const objCurva = new THREE.Line(geometry, material);
     objCurva.name = 'objCurva';
     cena.add(objCurva);
@@ -100,7 +93,6 @@ function Bezier(cena, camera, renderer, bola) {
       }
     }
 
-    // Renderiza a cena
     renderer.render(cena, camera);
   }
 

@@ -1,6 +1,6 @@
 import * as THREE from 'https://unpkg.com/three/build/three.module.js';
 import {OrbitControls} from "https://threejsfundamentals.org/threejs/resources/threejs/r110/examples/jsm/controls/OrbitControls.js";
-import {LuzPoint,LuzDirecional} from './Luz.js';
+import {LuzPoint} from './Luz.js';
 import {PisoPrincipal, Piso} from './Piso.js';
 import {Mesa} from './Mesa.js';
 import { Bola } from './Bola.js';
@@ -24,15 +24,12 @@ camera.position.z = 35;
 camera.position.y = 8;
 
 
-// iluminação
-// Função de animação
 function animate() {
   requestAnimationFrame(animate);
   renderer.render(cena, camera);
 }
 
 export function init(){
-  //LuzDirecional(cena,new THREE.Color(0xFFFFFF),1,0,0,0)
   Mesa(cena,0,-12,0,0,20)
   LuzPoint(cena, new THREE.Color(0xFFFFFF), 1.2, 0, 34, 0);
   PisoPrincipal(cena,0,-12.8,0,100,100);

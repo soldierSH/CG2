@@ -8,24 +8,6 @@ export function LuzPoint(cena, cor, intensidade, x, y, z) {
   Lampada(cena,cor,intensidade,0, 39, 0,0.2)
 
 }
-export function LuzDirecional(cena,cor, intensidade,x,y,z){
-  const luzDirecional = new THREE.DirectionalLight(cor, intensidade);
-  luzDirecional.position.set(x,y,z);
-  luzDirecional.distance = 20
-  luzDirecional.castShadow = true; // Habilita sombras
-  // Configuração da câmera de sombra
-  luzDirecional.shadow.camera.near = 0.5; // Distância mínima em que a câmera de sombra enxerga
-  luzDirecional.shadow.camera.far = 50; // Distância máxima em que a câmera de sombra enxerga
-  luzDirecional.shadow.camera.left = -10; // Limite esquerdo da câmera de sombra
-  luzDirecional.shadow.camera.right = 10; // Limite direito da câmera de sombra
-  luzDirecional.shadow.camera.top = 10; // Limite superior da câmera de sombra
-  luzDirecional.shadow.camera.bottom = -10; // Limite inferior da câmera de sombra
-
-  // Configuração do mapa de sombras
-  luzDirecional.shadow.mapSize.width = 1024; // Largura do mapa de sombras
-  luzDirecional.shadow.mapSize.height = 1024; // Altura do mapa de sombras
-  cena.add(luzDirecional);
-}
 function Lampada(cena, cor, intensidade, x, y, z, tamanho) {
   // Estrutura do lathe
   const points = [];
