@@ -13,8 +13,8 @@ export function meshRaquete(cena, camera, renderer, cabo, cabeca, x, y, z, vz){
   raquete.add(cabeca);
   
   raquete.position.set(x, y, z);
-  raquete.receiveShadow = true;
-  raquete.castShadow = true;
+  //raquete.receiveShadow = true;
+  //raquete.castShadow = true;
   raquete.rotation.x = Math.PI / -4 * vz;
   raquete.rotation.z = Math.PI / -8 * (vz/1.5);
     

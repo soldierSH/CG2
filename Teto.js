@@ -66,17 +66,12 @@ export function Parede(cena, x, y, z, largura, altura, espessura,rotacao) {
     var material = new THREE.MeshStandardMaterial({ map: p, roughness: 1, metalness: 0.8 });
     
     var cubo = new THREE.Mesh(geometria, material);
-    //cubo.castShadow = true;
-    //cubo.receiveShadow = true;
     cena.add(cubo);
     cubo.position.set(x, y, z);
 
     p.wrapS = THREE.RepeatWrapping; // Repetição horizontal
     p.wrapT = THREE.RepeatWrapping; // Repetição vertical
     p.repeat.set(12, 6); //quantidade de repetições
-    
-    //plano.position.copy(cubo.position);
-    //plano.position.set(x,0,z-30)
     cubo.rotation.y = Math.PI*rotacao;
     
 }
