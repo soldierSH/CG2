@@ -49,5 +49,5 @@ export function LetreiroAnimado(rotacao, cena, cor, altura, largura, posX, posY,
     requestAnimationFrame(animateLetreiro);
   }
 
-  animateLetreiro();
+  //animateLetreiro();
 }

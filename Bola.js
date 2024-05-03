@@ -80,7 +80,7 @@ function Bezier(cena, camera, renderer, bola) {
     bola.rotation.y += 0.02;
 
     // Atualiza o parâmetro de tempo
-    t += 0.15; // Ajuste a velocidade da animação alterando o valor aqui
+    t += 0.8; // Ajuste a velocidade da animação alterando o valor aqui
 
     // Verifica se o parâmetro de tempo atingiu o valor máximo
     if (t > maxT) {
