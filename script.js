@@ -29,9 +29,11 @@ function animate() {
   renderer.render(cena, camera);
 }
 
-export function init(){
+const loaderDae = new 
+
+function init(){
   Mesa(cena,0,-12,0,0,20)
-  LuzPoint(cena, new THREE.Color(0xFFFFFF), 1.2, 0, 34, 0);
+  LuzPoint(cena, new THREE.Color(0xFFFFFF), 0.5, 0, 34, 0);
   PisoPrincipal(cena,0,-12.8,0,100,100);
   Piso(cena,new THREE.Color(0x26AEFF),0,-21,0,200,200);
   Teto(cena,0,40,0,0,200)
@@ -40,4 +42,5 @@ export function init(){
   Raquete(cena,camera,renderer, new THREE.Color(0x9440FF),16,-2.5,2,0.6)
   animate();
 }
-init()
+//init()
+

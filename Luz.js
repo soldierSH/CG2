@@ -1,11 +1,12 @@
 import * as THREE from 'https://unpkg.com/three/build/three.module.js';
 
 export function LuzPoint(cena, cor, intensidade, x, y, z) {
-  Lampada(cena,cor,intensidade,-50, 39, 0,0.2,1)
-  Lampada(cena,cor,intensidade,50, 39, 0,0.2,1)
-  Lampada(cena,cor,intensidade,0, 39, -50,0.2,1)
-  Lampada(cena,cor,intensidade,0, 39, 50,0.2,1)
-  Lampada(cena,cor,intensidade,0, 39, 0,0.2,0)
+  Lampada(cena,cor,intensidade,-50, 39, 0,0.2,0)
+  Lampada(cena,cor,intensidade,50, 39, 0,0.2,0)
+  Lampada(cena,cor,intensidade,0, 39, -50,0.2,0)
+  Lampada(cena,cor,intensidade,0, 39, 50,0.2,0)
+  Lampada(cena,cor,intensidade,0, 39, 0,0.2,1)
+  LuzAmbiente(cena, 0xffffff, 2);
 
 }
 function Lampada(cena, cor, intensidade, x, y, z, tamanho,op) {
@@ -24,10 +25,10 @@ function Lampada(cena, cor, intensidade, x, y, z, tamanho,op) {
 
   // Lâmpada principal
   var lampadaEsfera = new THREE.SphereGeometry(1.3, 32,32);
-  var luz = new THREE.PointLight(0xffffff, 1.5, 100, 2);
+  var luz = new THREE.DirectionalLight(0xffffff, 1.5, 100, 2);
   var lampada = new THREE.MeshStandardMaterial({
     emissive: 0xffffff,
-    emissiveIntensity: intensidade * 2,
+    emissiveIntensity: intensidade,
     color: 0xffffff,
     roughness: 1
   });
@@ -42,4 +43,8 @@ function Lampada(cena, cor, intensidade, x, y, z, tamanho,op) {
   lampadaCompleta.add(lathe);
   lampadaCompleta.add(luz);
   cena.add(lampadaCompleta);
+}
+function LuzAmbiente(cena, cor, intensidade) {
+  const luzAmbiente = new THREE.AmbientLight(cor, intensidade);
+  cena.add(luzAmbiente);
 }
