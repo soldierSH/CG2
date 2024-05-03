@@ -42,5 +42,5 @@ function init(){
   Raquete(cena,camera,renderer, new THREE.Color(0x9440FF),16,-2.5,2,0.6)
   animate();
 }
-//init()
+init()
 
